@@ -1,5 +1,5 @@
 import { create } from "zustand";
-
+import {immer} from 'zustand/middleware/immer'
 type TCat = {
     cats: {
         smallCat: number,
@@ -14,19 +14,24 @@ interface CatAction {
 }
 
 
-export const useCatStore = create<TCat & CatAction>()((set, get) => ({
+export const useCatStore = create<TCat & CatAction>()(immer((set, get) => ({
     cats: {
         smallCat: 0,
         bigCat: 0
     },
     addSmallCat: () => {
-        set((state) => ({cats: {...state.cats, smallCat: state.cats.smallCat + 1}}));
+        set((state) => {
+            state.cats.bigCat+=1
+        });
     },
     addBigCat: () => {
-        set((state) => ({cats: {...state.cats, bigCat: state.cats.bigCat + 1}}));
+        set((state) => {
+            //
+            state.cats.smallCat+=1
+        });
     },
     summary: () => {
         const totalCats = get().cats.smallCat + get().cats.bigCat;
         return `You have total ${totalCats} ${totalCats > 1 ? 'cats' : 'cat'}`;
     }
-}));
+})));
