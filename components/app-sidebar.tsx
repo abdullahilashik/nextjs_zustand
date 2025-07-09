@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuAction, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from './ui/sidebar';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuAction, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from './ui/sidebar';
 import Link from 'next/link';
 import { ChevronDown, Home, MoreHorizontal, User, Youtube } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
@@ -113,6 +113,9 @@ const AppSidebar = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </SidebarMenuItem>
+                {/* <SidebarMenuItem>
+                  <SidebarMenuSkeleton />
+                </SidebarMenuItem> */}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
