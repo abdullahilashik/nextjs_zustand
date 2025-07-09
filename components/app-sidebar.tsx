@@ -23,6 +23,11 @@ const menuItems = [
         id: 1,
         title: 'Bear Store',
         href: '/bear-store'
+      },
+      {
+        id: 2,
+        title: 'Cat boxes',
+        href: '/cat-box'
       }
     ]
   },
