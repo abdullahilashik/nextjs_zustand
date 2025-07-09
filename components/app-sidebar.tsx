@@ -117,10 +117,7 @@ const AppSidebar = () => {
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </SidebarMenuItem>
-                {/* <SidebarMenuItem>
-                  <SidebarMenuSkeleton />
-                </SidebarMenuItem> */}
+                </SidebarMenuItem>                
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
