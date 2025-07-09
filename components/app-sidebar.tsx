@@ -75,7 +75,7 @@ const AppSidebar = () => {
                               menu.children.map(sub=> (
                                 <SidebarMenuSubItem key={sub.id}>
                                   <SidebarMenuSubButton asChild>
-                                    <Link href={sub.href}>{sub.title}</Link>
+                                    <Link href={menu.href + '' +sub.href}>{sub.title}</Link>
                                   </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
                               ))
