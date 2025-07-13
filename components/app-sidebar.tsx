@@ -28,6 +28,16 @@ const menuItems = [
         id: 2,
         title: 'Cat boxes',
         href: '/cat-box'
+      },
+      {
+        id: 3,
+        title: 'Cat Controller',
+        href: '/cat-controller'
+      },      
+      {
+        id: 4,
+        title: 'Persist',
+        href: '/persist'
       }
     ]
   },
