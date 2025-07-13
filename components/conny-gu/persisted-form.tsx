@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader } from "../ui/card";
 import { Button } from "../ui/button";
 import z from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
+import { usePersistedStore } from "@/stores/persisted-store";
 
 const FormSchema = z.object({
     name: z.string({required_error: 'Name is required'}),
@@ -13,14 +14,28 @@ const FormSchema = z.object({
 })
 
 const PersistedForm = () => {
+
+  const name = usePersistedStore(state => state.name);
+  const occupation = usePersistedStore(state => state.occupation);
+  const updateName = usePersistedStore(state => state.updateName);
+  const updateOccupation = usePersistedStore(state => state.updateOccupation);
+  const update = usePersistedStore(state => state.update);
+
   const {
     control,
     formState: { errors, isSubmitting },
     handleSubmit,
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      name: name,
+      occupation: ''
+    }
+  });
 
-  const onFormSubmitHandle = async (formdata) => {
+  const onFormSubmitHandle = (formdata : {name: string, occupation: string}) => {
     console.log("Form data: ", formdata);
+    update(formdata.name, formdata.occupation);
   };
   return (
     <>
@@ -58,7 +73,7 @@ const PersistedForm = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit">Persist</Button>
+            <Button type="submit" className="cursor-pointer" variant={'default'}>Persist</Button>
           </form>
         </CardContent>
       </Card>

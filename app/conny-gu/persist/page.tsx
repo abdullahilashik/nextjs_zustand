@@ -6,7 +6,9 @@ const PersistPage = () => {
     
   return (
     <>
-        <PersistedForm />
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          <PersistedForm />
+        </div>
     </>
   )
 }
