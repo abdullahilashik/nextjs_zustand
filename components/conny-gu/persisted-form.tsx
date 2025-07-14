@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FormField, FormItem } from "../ui/form";
 import { Card, CardContent, CardHeader } from "../ui/card";
@@ -21,6 +21,10 @@ const PersistedForm = () => {
   const updateOccupation = usePersistedStore(state => state.updateOccupation);
   const update = usePersistedStore(state => state.update);
 
+  useEffect(() => {
+    usePersistedStore.persist.rehydrate(); // rehydrate
+  } ,[]);
+
   const {
     control,
     formState: { errors, isSubmitting },
@@ -29,7 +33,7 @@ const PersistedForm = () => {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: name,
-      occupation: ''
+      occupation: occupation
     }
   });
 
